@@ -1,0 +1,29 @@
+name: Conferir bases nutricionais públicas
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '25 11 * * *' # Uma vez ao dia, 08h25 de Brasília (UTC-3)
+permissions:
+  contents: write
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar dependências
+        run: pip install requests beautifulsoup4
+      - name: Consultar publicações oficiais e preparar pacotes compatíveis
+        run: python scripts/atualizar_bases.py
+      - name: Publicar novas versões no repositório
+        run: |
+          git config user.name "bdc-monitor"
+          git config user.email "bdc-monitor@users.noreply.github.com"
+          git add -A site/
+          if ! git diff --cached --quiet; then
+            git commit -m "Atualizar catálogo público de alimentos"
+            git push
+          fi

@@ -1,6 +1,6 @@
 {
   "schema": "bdc-food-updates-v1",
-  "generatedAt": "2026-11-07",
+  "generatedAt": "2026-11-08T11:12:28+00:00",
   "description": "Catálogo de verificação das bases alimentares públicas. O monitor agenda consultas para USDA Foundation e IBGE; a TACO é verificada pelo próprio programa. Atualizações exigem pacotes validados. Dados de pacientes nunca são enviados ao GitHub.",
   "sources": {
     "TACO": {
@@ -12,13 +12,18 @@
       "version": "2008-2009",
       "status": "referencia-historica",
       "dataUrl": null,
-      "sourceUrl": "https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabelas_de_Composicao_Nutricional_dos_Alimentos_Consumidos_no_Brasil/tabelacompleta.zip"
+      "sourceUrl": "https://ftp.ibge.gov.br/Orcamentos_Familiares/Pesquisa_de_Orcamentos_Familiares_2008_2009/Tabelas_de_Composicao_Nutricional_dos_Alimentos_Consumidos_no_Brasil/tabelacompleta.zip",
+      "upstreamSha256": "3aa01426f16f8041ce830de2dda7e5003806b437917cb829f8cefe84a0ac21e0"
     },
     "USDA_FOUNDATION": {
       "version": "2026-10",
-      "status": "instalada",
-      "dataUrl": null,
-      "sourceUrl": "https://fdc.nal.usda.gov/download-datasets/"
+      "status": "disponivel",
+      "dataUrl": "./food-packs/foundation-2026-10.json",
+      "sha256": "bba3e1968264bdcb555707a7bf3271a03d5c864acfe1faf0653f1338686f1c8b",
+      "upstreamSha256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+      "count": 424,
+      "sourceUrl": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+      "publishedBy": "USDA FoodData Central"
     },
     "USDA_SR_LEGACY": {
       "version": "2018-04",
